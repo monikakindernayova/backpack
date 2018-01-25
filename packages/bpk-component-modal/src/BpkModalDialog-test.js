@@ -161,4 +161,24 @@ describe('BpkModalDialog', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it('should render correctly when it is fullscreen', () => {
+    const tree = renderer
+      .create(
+        <BpkModalDialog
+          id="my-modal"
+          title="Modal title"
+          onClose={jest.fn()}
+          closeLabel="Close"
+          closeEvents={closeEvents}
+          dialogRef={jest.fn()}
+          fullScreen
+          isIphone={false}
+        >
+          Modal content
+        </BpkModalDialog>,
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
